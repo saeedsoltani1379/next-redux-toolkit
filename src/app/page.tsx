@@ -1,7 +1,7 @@
 import { CategoryType } from '@/servertypes/servertypes';
 import { categoryProducts } from '@/services/Api';
 import Link from 'next/link';
-import Image from 'next/image'; // اضافه کردن Image
+import Image from 'next/image'; 
 import React from 'react';
 
 async function Home() {
@@ -20,9 +20,9 @@ async function Home() {
             <Image
               src={category.img}
               alt={category.category}
-              width={256} // معادل w-64
-              height={256} // معادل h-64
-              className='w-64 h-64 rounded-full' // حفظ Tailwind
+              width={256} 
+              height={256}
+              className='w-64 h-64 rounded-full' 
             />
             <div className='text-center text-2xl'>{category.category}</div>
           </Link>
