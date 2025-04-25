@@ -11,8 +11,7 @@ function Dashboard() {
     detail: "",
     category: "",
   });
-  const [message, setMessage] = useState(""); // State for success/error message
-
+  const [message, setMessage] = useState(""); 
   const handleOnChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -25,7 +24,7 @@ function Dashboard() {
 
   const submitCreateProduct = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/products", {
+      await axios.post("http://localhost:8000/products", {
         id: Math.floor(Math.random() * 100).toString(),
         img: createProduct.img,
         title: createProduct.title,
@@ -33,8 +32,7 @@ function Dashboard() {
         detail: createProduct.detail,
         category: createProduct.category,
       });
-      setMessage("Product created!"); // Success message
-      // Optionally reset form
+      setMessage("Product created!"); 
       setCreateProduct({
         img: "",
         title: "",
@@ -43,7 +41,7 @@ function Dashboard() {
         category: "",
       });
     } catch (error) {
-      setMessage("Error creating product!"); // Error message
+      setMessage("Error creating product!"); 
       console.error("Error creating product:", error);
     }
   };
@@ -51,7 +49,11 @@ function Dashboard() {
   return (
     <div className="flex flex-col items-center space-y-8 mt-20 mb-14">
       {message && (
-        <p className={`mb-4 text-lg ${message.includes("Error") ? "text-red-500" : "text-green-500"}`}>
+        <p
+          className={`mb-4 text-lg ${
+            message.includes("Error") ? "text-red-500" : "text-green-500"
+          }`}
+        >
           {message}
         </p>
       )}

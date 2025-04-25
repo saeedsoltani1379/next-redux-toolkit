@@ -1,45 +1,36 @@
 "use client";
 
-import React, { useState } from "react";
-import Cookie from "js-cookie";
-import { redirect } from "next/navigation";
+import { useState } from "react";
 
 function Login() {
-  const [userName, setuserName] = useState("");
-  const [password, setpassword] = useState("");
-  const handleLogin = () => {
-    const reponse = {
-      token: "hfjkhdsjhf879d6a5d6sasdag668asbd",
-      expired: 7,
-    };
-    Cookie.set("token", reponse.token, { expires: reponse.expired });
-    redirect("/dashboard");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Login attempt:", { userName, password });
   };
+
   return (
-    <div className="flex flex-col mt-44 items-center">
-      <div className="flex flex-col bg-blue-900 p-16 rounded-lg space-y-7">
-        <input
-          className="text-center border p-6 rounded-md w-64 text-white"
-          onChange={(e) => setuserName(e.target.value)}
-          type="text"
-          placeholder="username"
-          name="username"
-        />
-        <input
-          className="text-center border p-6 rounded-md w-64 text-white"
-          onChange={(e) => setpassword(e.target.value)}
-          type="password"
-          placeholder="password"
-          name="password"
-        />
-        <button
-          onClick={handleLogin}
-          className="p-4 rounded-lg text-center bg-green-600 hover:scale-110"
-        >
-          LOGIN
-        </button>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Username"
+        className="border p-2 rounded"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+        className="border p-2 rounded"
+      />
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        Login
+      </button>
+    </form>
   );
 }
 

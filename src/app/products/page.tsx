@@ -1,12 +1,11 @@
 import Pagination from "@/components/paginate/Pagination";
 import ProductItem from "@/components/ProductItem";
 import Search from "@/components/Search";
-import { Ipagination, ServerTypes } from "@/servertypes/servertypes";
+import { Ipagination } from "@/servertypes/servertypes";
 import Link from "next/link";
 import React from "react";
 
 interface Ipromises {
-  params: Promise<{}>;
   searchParams: Promise<{ page: string; per_page: string; serach: string }>;
 }
 
