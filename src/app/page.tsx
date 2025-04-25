@@ -16,12 +16,11 @@ async function Home() {
     <div className='flex flex-wrap justify-around mt-60 mb-10 space-y-6'>
       {data.map((category) => (
         <div key={category.id} className='p-8 shadow-2xl shadow-black rounded-full hover:scale-105'>
-          <Link href={category.link}>
+          <Link href={category.link} className='w-60 h-64'>
             <Image
               src={category.img}
               alt={category.category}
-              width={256} 
-              height={256}
+
               className='w-64 h-64 rounded-full' 
             />
             <div className='text-center text-2xl'>{category.category}</div>

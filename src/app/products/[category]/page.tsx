@@ -1,5 +1,6 @@
 import { ServerTypes } from "@/servertypes/servertypes";
 import { productdata } from "@/services/Api";
+import Image from "next/image";
 import Link from "next/link";
 
 interface categoryProps {
@@ -28,7 +29,7 @@ async function Category({ params }: categoryProps) {
                 className="space-y-8 hover:scale-110 shadow-2xl rounded-md"
                 key={item.id}
               >
-                <img
+                <Image
                   className="w-60 h-60 rounded-md"
                   src={item.mainimg}
                   alt={item.title}
