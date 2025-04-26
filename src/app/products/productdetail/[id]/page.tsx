@@ -1,7 +1,6 @@
 import AddToCart from "@/components/AddToCart";
 import { ServerTypes } from "@/servertypes/servertypes";
 import { productDataById } from "@/services/Api";
-import Image from "next/image";
 
 async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -28,26 +27,26 @@ async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className="mt-20 flex justify-around md:space-x-20 md:justify-normal flex-wrap">
       <div className="flex flex-col">
-        <Image
+        <img
           className="w-96 h-96 p-2 rounded-md"
-          src={data?.mainimg || "product image"}
+          src={data?.mainimg}
           alt={data?.title || "Product image"}
         />
         <div className="flex flex-wrap justify-around max-w-96 py-2 md:space-y-0 space-y-4">
-          <Image
+          <img
             className="w-28 h-32 rounded-md"
-            src={data?.imgchild1 || "product image"}
-            alt={data?.title ||"Product image 1"}
+            src={data?.imgchild1}
+            alt="Product image 1"
           />
           <img
             className="w-28 h-32 rounded-md"
-            src={data?.imgchild2 || "product image"}
-            alt={data?.title ||"Product image 1"}
+            src={data?.imgchild2}
+            alt="Product image 2"
           />
           <img
             className="w-28 h-32 rounded-md"
-            src={data?.imgchild3 || "product image"} 
-            alt={data?.title ||"Product image 1"}
+            src={data?.imgchild3}
+            alt="Product image 3"
           />
         </div>
       </div>

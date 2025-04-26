@@ -68,7 +68,7 @@ function Cart() {
       {selector.map((item) => (
         <CartItem key={item.id} {...item} />
       ))}
-      <div className="bg-gray-200 p-6 mt-20 mb-10 rounded-md space-y-6 md:space-y-4">
+      <div className="bg-gray-200 p-6 mt-20 mb-10 rounded-md space-y-8 md:space-y-4">
         <div className="flex flex-wrap space-x-3">
           <input
             onChange={(e) => setDiscount(e.target.value)}
@@ -78,7 +78,7 @@ function Cart() {
           />
           <button
             onClick={handleDiscountPrice}
-            className="bg-green-600 px-6 py-2 rounded-md md:mx-0 mx-auto mt-2 md:m-0"
+            className="bg-green-600 px-4 py-2 rounded-md md:mx-0 mx-auto mt-2 md:m-0"
           >
             confirm
           </button>
