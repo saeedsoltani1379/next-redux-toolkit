@@ -1,36 +1,45 @@
 "use client";
 
 import { useState } from "react";
+import Cookie from "js-cookie";
+import { redirect } from "next/navigation";
 
 function Login() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setuserName] = useState("");
+  const [password, setpassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Login attempt:", { userName, password });
+  const handleLogin = () => {
+    const response = {
+      token: "876das7d6bs7d697a6dasb6d",
+      expire: 2,
+    };
+    Cookie.set("token", response.token, { expires: response.expire });
+    redirect("/dashboard")
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-6 mt-40 ">
-      <input
-        type="text"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-        placeholder="Username"
-        className="border py-3 px-20 rounded text-center"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        className="border px-20 py-3 rounded text-center"
-      />
-      <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded">
-        Login
-      </button>
-    </form>
+    <div className="flex flex-col justify-center mt-40">
+      <div className=" flex flex-col space-y-6  mx-auto">
+        <input
+          onChange={(e) => setuserName(e.target.value)}
+          className="border p-2 text-center w-80 rounded-md"
+          type="text"
+          placeholder="username"
+        />
+        <input
+          onChange={(e) => setpassword(e.target.value)}
+          className="border p-2 text-center rounded-md"
+          type="password"
+          placeholder="password"
+        />
+        <button
+          onClick={handleLogin}
+          className="bg-green-600 p-4 m-1 rounded-md"
+        >
+          submit
+        </button>
+      </div>
+    </div>
   );
 }
 
