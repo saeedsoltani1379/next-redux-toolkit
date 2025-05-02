@@ -4,7 +4,7 @@ import Container from "./Container";
 import Navbar from "./Navbar";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
-import CartInitilizer from "./CartInitilizer";
+import CartInitilizer from "../localstorage/CartInitilizer";
 
 
 function Layout({ children }: { children: React.ReactNode }) {
